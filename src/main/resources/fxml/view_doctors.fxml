@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane style="-fx-background-color: #55efc4;" styleClass="view-doctors-root, view-table-root" stylesheets="/style/style.css,/style/tables.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.remote_vitals.frontend.controllers.ViewDoctorsController">
+    <children>
+        <VBox alignment="CENTER" layoutX="-2.0" layoutY="-4.0" prefHeight="572.0" prefWidth="916.0" spacing="20" styleClass="container" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="-4.0">
+
+            <HBox alignment="CENTER">
+                <Label styleClass="section-title" text="  Registered Doctors">
+                    <font>
+                        <Font name="Times New Roman Bold" size="40.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin></Label>
+            </HBox>
+
+            <TableView fx:id="doctorsTable" prefHeight="400" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="firstnameColumn" prefWidth="120" text="First Name" />
+                    <TableColumn fx:id="lastnameColumn" prefWidth="120" text="Last Name" />
+                    <TableColumn fx:id="genderColumn" prefWidth="80" text="Gender" />
+                    <TableColumn fx:id="phoneNumberColumn" prefWidth="150" text="Phone Number" />
+                    <TableColumn fx:id="emailColumn" prefWidth="200" text="Email" />
+                    <TableColumn fx:id="qualificationColumn" prefWidth="180" text="Qualification" />
+                </columns>
+                <placeholder>
+                    <Label text="No doctors registered in the system" />
+                </placeholder>
+            </TableView>
+
+            <HBox alignment="CENTER" spacing="20">
+                <Button fx:id="goback" onAction="#handleGoBack" prefHeight="26.0" prefWidth="139.0" styleClass="back-button" text="Go Back" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

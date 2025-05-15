@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.remote_vitals.frontend.controllers.CheckupController"
+            prefHeight="600.0" prefWidth="800.0"
+            stylesheets="/style/style.css">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <top>
+        <VBox spacing="10">
+            <Label text="Patient Checkup" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+            <Separator/>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="20" alignment="CENTER">
+            <Label text="Enter Feedback here " style="-fx-font-size: 16;"/>
+            <TextArea fx:id="feedbackArea" promptText="Enter feedback here..." prefHeight="200"/>
+            <Label text="Enter Prescription here " style="-fx-font-size: 16;"/>
+            <TextArea fx:id="prescriptionArea" promptText="Enter prescription here..." prefHeight="200"/>
+            <Button text="Submit" fx:id="submitButton" styleClass="primary-button"/>
+        </VBox>
+    </center>
+</BorderPane> 

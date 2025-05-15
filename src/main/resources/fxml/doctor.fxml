@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.remote_vitals.frontend.controllers.DoctorDashboardController"
+            stylesheets="@/style/style.css"
+            prefWidth="960" prefHeight="600">
+
+    <!-- Sidebar -->
+    <left>
+        <VBox fx:id="sidebar" spacing="12" alignment="TOP_CENTER" styleClass="sidebar" prefWidth="250">
+            <Label text="Doctor Dashboard" styleClass="dashboard-title"/>
+            <Button fx:id="patient" text="View Patients" styleClass="sidebar-button" onAction="#handleViewPatients"/>
+            <Button fx:id="appoint" text="Appointments" styleClass="sidebar-button" onAction="#handleAppointments"/>
+
+            <Separator prefWidth="140"/>
+            <Button text="Log out" styleClass="sidebar-button" onAction="#handleLogout"/>
+        </VBox>
+    </left>
+
+    <!-- Center Scroll Area -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="profile-scroll">
+            <VBox spacing="20" styleClass="profile-container">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+                <!-- Main Title -->
+                <Label text="Doctor Profile" styleClass="main-profile-title"/>
+
+                <!-- Profile Info Section -->
+                <HBox spacing="40" alignment="CENTER">
+
+                    <!-- Personal Info -->
+                    <VBox spacing="15" styleClass="profile-section">
+                        <Label text="Basic Information" styleClass="section-title"/>
+
+                        <GridPane hgap="10" vgap="10">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                                <ColumnConstraints minWidth="150" fillWidth="true"/>
+                            </columnConstraints>
+
+                            <Label text="First Name:" styleClass="profile-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <Label fx:id="firstNameLabel" text="Alice" styleClass="profile-value" wrapText="true" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Last Name:" styleClass="profile-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <Label fx:id="lastNameLabel" text="Smith" styleClass="profile-value" wrapText="true" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Gender:" styleClass="profile-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <Label fx:id="genderLabel" text="Female" styleClass="profile-value" wrapText="true" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- Editable Info -->
+                    <VBox spacing="15" styleClass="profile-section">
+                        <Label text="Professional Information (Editable)" styleClass="section-title"/>
+
+                        <GridPane hgap="10" vgap="10">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                                <ColumnConstraints minWidth="150" fillWidth="true"/>
+                            </columnConstraints>
+
+                            <Label text="Phone Number:" styleClass="profile-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="phoneNumberField" promptText="+9876543210" styleClass="profile-field" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Email:" styleClass="profile-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="emailField" promptText="alice.smith@hospital.com" styleClass="profile-field" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Password:" styleClass="profile-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <PasswordField fx:id="passwordField" promptText="Enter new password" styleClass="profile-field" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Label text="Qualifications:" styleClass="profile-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <TextArea fx:id="qualificationsArea" styleClass="profile-textarea" prefRowCount="3" wrapText="true"
+                                      promptText="MBBS, MD, etc." GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                        </GridPane>
+                    </VBox>
+                </HBox>
+
+                <!-- Update Button -->
+                <HBox alignment="CENTER" spacing="10" styleClass="button-container">
+                    <Button text="Update Information" styleClass="update-button" onAction="#handleUpdateDoctorInfo"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

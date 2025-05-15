@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.remote_vitals.frontend.controllers.FeedbackController"
+      spacing="24"
+      alignment="TOP_CENTER"
+      stylesheets="/style/style.css"
+      styleClass="feedback-root"
+      prefWidth="800"
+      prefHeight="600">
+
+    <!-- Page heading -->
+    <Label text="Feedback and Suggestions" styleClass="section-title"/>
+
+    <!-- Existing feedback display -->
+    <VBox spacing="12" alignment="TOP_CENTER" styleClass="card">
+        <Label text="Your Past Feedback" styleClass="card-title"/>
+
+        <TableView fx:id="feedbackTable"
+                   prefHeight="250"
+                   prefWidth="700">
+            <columns>
+                <TableColumn fx:id="dateCol" text="Date" prefWidth="200"/>
+                <TableColumn fx:id="messageCol" text="Feedback Message" prefWidth="500"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <!-- New feedback form -->
+    <VBox spacing="12" alignment="TOP_CENTER" styleClass="card">
+        <Label text="Share Something New" styleClass="card-title"/>
+
+        <TextArea fx:id="feedbackInput"
+                  promptText="Write your feedback here..."
+                  prefWidth="700"
+                  prefHeight="120"
+                  styleClass="feedback-textarea"/>
+
+        <HBox spacing="12" alignment="CENTER_RIGHT" prefWidth="700">
+            <Region fx:id="spacer" HBox.hgrow="ALWAYS"/>
+            <Button text="Submit" onAction="#handleSubmitFeedback" styleClass="primary-button"/>
+        </HBox>
+    </VBox>
+
+    <Region prefHeight="20"/>
+</VBox>

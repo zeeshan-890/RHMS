@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.remote_vitals.frontend.controllers.PatientDashboardController"
+            stylesheets="@/style/style.css"
+            styleClass="main-container"
+            style="-fx-background-color: #87CEEB"
+
+            prefWidth="960" prefHeight="600">
+
+    <!-- Sidebar -->
+    <left>
+        <VBox fx:id="sidebar" spacing="12" alignment="TOP_CENTER" styleClass="sidebar" prefWidth="250">
+            <Label text="Patient Dashboard" styleClass="dashboard-title"/>
+            <Button fx:id="vital" text="Vitals" styleClass="sidebar-button" onAction="#handleVitals"/>
+            <Button fx:id="appointment" text="Appointments" styleClass="sidebar-button" onAction="#handleAppointments"/>
+            <Button fx:id="checkup" text="Checkup" styleClass="sidebar-button" onAction="#handleCheckup"/>
+            <Button fx:id="panic" text="Panic Alert" styleClass="sidebar-button" onAction="#handlePanic"/>
+
+
+            <Separator prefWidth="140"/>
+            <Button fx:id="logout" text="Log out" styleClass="sidebar-button" onAction="#handleLogout"/>
+        </VBox>
+    </left>
+
+    <!-- Center Scroll Area -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="profile-scroll">
+            <VBox spacing="20" styleClass="profile-container">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <!-- Main Title -->
+                <Label text="Patient Profile" styleClass="main-profile-title"/>
+
+                <!-- Profile Info Section -->
+                <HBox spacing="40" alignment="CENTER">
+
+                    <!-- Personal Info -->
+                    <VBox spacing="15" styleClass="profile-section">
+                        <Label text="Personal Information" styleClass="section-title"/>
+
+                        <GridPane hgap="10" vgap="10">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                                <ColumnConstraints minWidth="150" fillWidth="true"/>
+                            </columnConstraints>
+
+                            <Label text="First Name:" styleClass="profile-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <Label fx:id="firstNameLabel" text="John" styleClass="profile-value" wrapText="true" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Last Name:" styleClass="profile-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <Label fx:id="lastNameLabel" text="Doe" styleClass="profile-value" wrapText="true" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Gender:" styleClass="profile-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <Label fx:id="genderLabel" text="Male" styleClass="profile-value" wrapText="true" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Label text="Date of Birth:" styleClass="profile-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <Label fx:id="dobLabel" text="1990-01-01" styleClass="profile-value" wrapText="true" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <Label text="Blood Group:" styleClass="profile-label" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <Label fx:id="bloodGroupLabel" text="O+" styleClass="profile-value" wrapText="true" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- Editable Info -->
+                    <VBox spacing="15" styleClass="profile-section">
+                        <Label text="Medical Information (Editable)" styleClass="section-title"/>
+
+                        <GridPane hgap="10" vgap="10">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                                <ColumnConstraints minWidth="150" fillWidth="true"/>
+                            </columnConstraints>
+
+                            <Label text="Phone Number:" styleClass="profile-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="phoneNumberField" promptText="+1234567890" styleClass="profile-field" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Email:" styleClass="profile-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="emailField" promptText="john.doe@example.com" styleClass="profile-field" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                            <Label text="Password:" styleClass="profile-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <PasswordField fx:id="passwordField" promptText="Enter new password" styleClass="profile-field" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                            <Label text="Medical History:" styleClass="profile-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <TextArea fx:id="medicalHistoryArea" styleClass="profile-textarea" prefRowCount="3" wrapText="true"
+                                      GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                            <Label text="Next of Kin Email:" styleClass="profile-label" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <TextField fx:id="nextOfKinEmailField" promptText="nextofkin@example.com"
+                                       styleClass="profile-field" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                        </GridPane>
+                    </VBox>
+                </HBox>
+
+                <!-- Update Button -->
+                <HBox alignment="CENTER" spacing="10" styleClass="button-container">
+                    <Button text="Update Medical Information" styleClass="update-button"
+                            onAction="#handleUpdateMedicalInfo"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

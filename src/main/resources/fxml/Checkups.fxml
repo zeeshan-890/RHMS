@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane stylesheets="/style/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.remote_vitals.frontend.controllers.CheckupsController">
+
+    <VBox alignment="TOP_CENTER" spacing="10" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <Label styleClass="section-title" text="Checkups" />
+        <TableView fx:id="checkupsTable" prefHeight="400.0" prefWidth="952.0" styleClass="table-view">
+            <columns>
+                <!-- Doctor Name Column -->
+                <TableColumn fx:id="doctorNameColumn" prefWidth="311.0000057220459" text="Doctor Name" />
+                <!-- Checkup Date Column -->
+                <TableColumn fx:id="checkupDateColumn" prefWidth="285.79998779296875" text="Checkup Date" />
+                <!-- Actions Column -->
+                <TableColumn fx:id="actionsColumn" prefWidth="273.20001220703125" text="Actions" />
+            </columns>
+        </TableView>
+        <Button fx:id="goBackButton" onAction="#handleGoBack" styleClass="back-button" text="Go Back" />
+    </VBox>
+</AnchorPane>

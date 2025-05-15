@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" stylesheets="/style/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.remote_vitals.frontend.controllers.DoctorAppointmentsController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <top>
+        <VBox spacing="10">
+            <Label style="-fx-font-size: 18; -fx-font-weight: bold;" text="Doctor Appointments" />
+            <Separator />
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10" VBox.vgrow="ALWAYS">
+            <!-- Scrollable Table -->
+            <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
+                <content>
+                    <TableView fx:id="appointmentTable" prefHeight="457.0" prefWidth="841.0">
+                        <columns>
+                            <TableColumn fx:id="dateCol" prefWidth="124.39999848604202" text="Date" />
+                            <TableColumn fx:id="patientCol" prefWidth="134.79998779296875" text="Patient" />
+                            <TableColumn fx:id="statusCol" prefWidth="108.4000244140625" text="Status" />
+                            <TableColumn fx:id="linkCol" prefWidth="184.39996337890625" text="Meeting Link" />
+                            <TableColumn fx:id="linkActionCol" prefWidth="200" text="Update Link" />
+                            <TableColumn fx:id="acceptCol" prefWidth="140" text="Accept" />
+                            <TableColumn fx:id="rejectCol" prefWidth="140" text="Reject" />
+                        </columns>
+                    </TableView>
+                </content>
+            </ScrollPane>
+
+            <!-- Scroll Button -->
+            <HBox alignment="CENTER" spacing="10">
+                <Button fx:id="scrollToBottomButton" onAction="#scrollToBottom" text="Scroll to Bottom" />
+            </HBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <Button fx:id="goBack" alignment="CENTER_RIGHT" onAction="#handleGoBack" styleClass="back-button" text="Go Back" />
+    </bottom>
+</BorderPane>

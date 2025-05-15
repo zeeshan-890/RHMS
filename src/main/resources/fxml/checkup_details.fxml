@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="402.0" prefWidth="678.0" spacing="20" styleClass="main-container" stylesheets="/style/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.remote_vitals.frontend.controllers.CheckupDetailsController">
+
+    <!-- Page Title -->
+    <Label styleClass="title" text="Checkup Details" />
+
+    <!-- Grid for Details -->
+    <GridPane styleClass="grid-pane" vgap="25">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" maxWidth="194.4" minWidth="76.40000762939454" prefWidth="146.4" />
+            <ColumnConstraints halignment="LEFT" maxWidth="436.39999237060545" minWidth="300.0" prefWidth="366.4" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="35.2" minHeight="0.0" prefHeight="20.800003814697266" />
+            <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="19.99999618530273" />
+            <RowConstraints maxHeight="36.99999999999999" minHeight="13.200000000000003" prefHeight="34.99999999999999" />
+            <RowConstraints maxHeight="31.599999999999994" minHeight="18.200000000000003" prefHeight="20.200000000000003" />
+        </rowConstraints>
+
+        <!-- Row 0: Doctor -->
+        <Label styleClass="info-label" text="Doctor:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label fx:id="doctorLabel" styleClass="info-value" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <!-- Row 1: Prescription -->
+        <Label styleClass="info-label" text="Prescription:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label fx:id="prescriptionLabel" styleClass="info-value" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+
+
+        <!-- Row 3: Time -->
+        <Label styleClass="info-label" text="Time:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Label fx:id="timeLabel" styleClass="info-value" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <!-- Row 2: Feedback -->
+        <Label styleClass="info-label" text="Feedback:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextArea fx:id="feedbackArea" editable="false" prefHeight="14.0" prefRowCount="3" prefWidth="366.0" styleClass="text-area" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    </GridPane>
+
+    <!-- Go Back Button -->
+    <Button fx:id="goBackButton" onAction="#handleGoBack" styleClass="go-back-button" text="Go Back" />
+</VBox>

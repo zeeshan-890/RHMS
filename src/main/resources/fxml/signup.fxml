@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="728.0" prefWidth="1094.0" styleClass="login-root" stylesheets="/style/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.remote_vitals.frontend.controllers.SignupController">
+    <children>
+        <ImageView fitHeight="741.0" fitWidth="1101.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="/image1.jpg" />
+            </image>
+        </ImageView>
+        <VBox alignment="CENTER" layoutX="278.0" layoutY="25.0" prefHeight="679.0" prefWidth="648.0" spacing="12" styleClass="login-pane">
+            <children>
+                <Label prefHeight="106.0" prefWidth="471.0" styleClass="login-title" text=" Patient Sign Up">
+                    <font>
+                        <Font name="Times New Roman" size="70.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="firstNameField" prefHeight="25.0" prefWidth="524.0" promptText="First Name">
+                    <VBox.margin>
+                        <Insets left="150.0" right="150.0" top="40.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField fx:id="lastNameField" prefWidth="250.0" promptText="Last Name">
+                    <VBox.margin>
+                        <Insets left="150.0" right="150.0" top="5.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField fx:id="phoneNumberField" prefWidth="250.0" promptText="Phone Number">
+                    <VBox.margin>
+                        <Insets left="150.0" right="150.0" top="5.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField fx:id="emailField" prefWidth="250.0" promptText="Email">
+                    <VBox.margin>
+                        <Insets left="150.0" right="150.0" top="5.0" />
+                    </VBox.margin>
+                </TextField>
+                <PasswordField fx:id="passwordField" prefWidth="250.0" promptText="Password">
+                    <VBox.margin>
+                        <Insets left="150.0" right="150.0" top="5.0" />
+                    </VBox.margin>
+                </PasswordField>
+                <PasswordField fx:id="confirmPasswordField" prefWidth="250.0" promptText="Confirm Password">
+                    <VBox.margin>
+                        <Insets left="150.0" right="150.0" top="5.0" />
+                    </VBox.margin>
+                </PasswordField>
+                <ComboBox fx:id="genderComboBox" prefHeight="25.0" prefWidth="178.0" promptText="Select Gender">
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </ComboBox>
+                <ComboBox fx:id="bloodGroupCombo" prefHeight="25.0" prefWidth="176.0" promptText="Select Blood Group">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="A+" />
+                            <String fx:value="A-" />
+                            <String fx:value="B+" />
+                            <String fx:value="B-" />
+                            <String fx:value="AB+" />
+                            <String fx:value="AB-" />
+                            <String fx:value="O+" />
+                            <String fx:value="O-" />
+                        </FXCollections>
+                    </items>
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </ComboBox>
+                <Label text="Date of Birth:">
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </Label>
+                <DatePicker fx:id="dobPicker" promptText="Select your birth date">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </DatePicker>
+                <Button fx:id="signupButton" onAction="#handleSignup" prefHeight="42.0" prefWidth="123.0" text="Sign Up">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </Button>
+                <Button fx:id="login" onAction="#redirectToLogin" prefHeight="42.0" prefWidth="199.0" text=" Log in">
+                    <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </children>
+
+</AnchorPane>

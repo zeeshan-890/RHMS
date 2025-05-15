@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.remote_vitals.frontend.controllers.PanicController"
+      alignment="CENTER"
+      spacing="30"
+      styleClass="panic-root"
+      stylesheets="/style/style.css"
+      prefWidth="800"
+      prefHeight="600">
+
+    <Label text="Emergency Alert System" styleClass="section-title"/>
+
+    <Label text="If you are experiencing a medical emergency, please click the button below."
+           styleClass="card-title"
+           wrapText="true"
+           maxWidth="600"/>
+
+    <Separator prefWidth="400"/>
+
+    <Button fx:id="panicButton" text="TRIGGER PANIC ALERT"
+            onAction="#handlePanic"
+            styleClass="panic-button"/>
+    <Button fx:id="goBackButton" onAction="#handleGoBack"
+            text="Go Back"
+            styleClass="back-button"/>
+
+</VBox>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.remote_vitals.frontend.controllers.AdminViewVitalsController"
+            prefHeight="600.0" prefWidth="800.0"
+            stylesheets="/style/style.css">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <top>
+        <VBox spacing="10">
+            <Label text="View Vitals" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+            <Separator/>
+        </VBox>
+    </top>
+
+    <center>
+        <!-- VBox to contain the TextArea and Go Back button -->
+        <VBox spacing="10" alignment="CENTER">
+            <ScrollPane fitToWidth="true">
+                <content>
+                    <TextArea fx:id="vitalsTextArea" wrapText="true" editable="false" prefHeight="500"/>
+                </content>
+            </ScrollPane>
+
+            <!-- Go Back Button -->
+            <Button fx:id="goBack" text="Go Back" onAction="#handleGoBak" styleClass="back-button"/>
+        </VBox>
+    </center>
+</BorderPane>

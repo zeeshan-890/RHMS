@@ -1,0 +1,213 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ScrollPane?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" stylesheets="/style/style.css"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.remote_vitals.frontend.controllers.UploadViltalsController">
+
+   <center>
+      <ScrollPane fitToWidth="true">
+         <content>
+            <VBox alignment="TOP_CENTER" spacing="30.0" styleClass="content-area" prefWidth="800.0">
+               <children>
+                  <Label styleClass="page-title" text="Upload Vitals Data">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Label>
+
+                  <HBox alignment="CENTER_LEFT" spacing="15.0">
+                     <children>
+                        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="page-subtitle"
+                                     text="Upload your health data manually or in CSV format. The file should include heart rate, oxygen level, temperature, and blood pressure readings."
+                                     textFill="#666666">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </HBox>
+
+                  <!-- Manual input form -->
+                  <!-- Manual input form -->
+                  <VBox spacing="20.0" styleClass="manual-entry-form">
+                     <children>
+                        <Label text="Manual Vitals Entry" styleClass="section-title" textFill="#333333">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <GridPane hgap="15" vgap="10">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                              <ColumnConstraints halignment="RIGHT" />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                           </columnConstraints>
+                           <children>
+
+
+                              <Label text="Body Temperature (°C)(32-42):" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                              <TextField fx:id="temperatureField" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+
+                              <Label text="Heart Rate(60-100):" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                              <TextField fx:id="heartRateField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                              <Label text="RBC Count(4-6)Million:" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                              <TextField fx:id="rbcField" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+
+                              <Label text="WBC Count(4-11)thousand:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                              <TextField fx:id="wbcField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                              <Label text="Platelet Count(150000-450000):" GridPane.rowIndex="2" GridPane.columnIndex="2" />
+                              <TextField fx:id="plateletField" GridPane.rowIndex="2" GridPane.columnIndex="3" />
+
+                              <Label text="Respiratory Rate(12-20)per min:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                              <TextField fx:id="respiratoryRateField" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                              <Label text="Systolic BP(90-180):" GridPane.rowIndex="3" GridPane.columnIndex="2" />
+                              <TextField fx:id="systolicField" GridPane.rowIndex="3" GridPane.columnIndex="3" />
+
+                              <Label text="Diastolic BP(60-120):" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                              <TextField fx:id="diastolicField" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+
+                              <Label text="Blood Volume(200-7000):" GridPane.rowIndex="4" GridPane.columnIndex="2" />
+                              <TextField fx:id="bloodVolumeField" GridPane.rowIndex="4" GridPane.columnIndex="3" />
+
+                              <Label text="Haemoglobin(12-18)g/dl:" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                              <TextField fx:id="haemoglobinField" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+
+                              <Label text="Height (0-272):" GridPane.rowIndex="5" GridPane.columnIndex="2" />
+                              <TextField fx:id="heightField" GridPane.rowIndex="5" GridPane.columnIndex="3" />
+
+                              <Label text="Weight (kg):" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                              <TextField fx:id="weightField" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+
+                        <Button text="Submit Vitals Manually" fx:id="submitManualButton" onAction="#handleManualSubmit"
+                                styleClass="primary-button" alignment="CENTER">
+                           <padding>
+                              <Insets top="10" bottom="10" left="30" right="30" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+
+
+                  <!-- CSV Drop Zone -->
+                  <StackPane prefHeight="300.0" prefWidth="700.0" styleClass="drop-zone">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="135.0" prefWidth="471.0" spacing="20.0">
+                           <children>
+                              <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="/image1.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label styleClass="drop-label" text="Drag and drop your CSV file here" textFill="#555555">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label text="or" textFill="#777777">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button mnemonicParsing="false" styleClass="select-file-button" text="Select File" onAction="#handleSelectFile">
+                                 <padding>
+                                    <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+
+                  <!-- Format Guide -->
+                  <VBox spacing="10.0" styleClass="format-requirements">
+                     <children>
+                        <Label styleClass="section-title" text="CSV Format Requirements:" textFill="#333333">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="code-sample" text="timestamp,heart_rate,oxygen_level,temperature,systolic_bp,diastolic_bp" textFill="#555555">
+                           <font>
+                              <Font name="Monospace Regular" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label styleClass="code-sample" text="2025-04-27T08:30:00,72,98,37.0,120,80" textFill="#555555">
+                           <font>
+                              <Font name="Monospace Regular" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+
+                  <!-- Bottom Buttons -->
+                  <HBox alignment="CENTER" spacing="30.0">
+                     <children>
+                        <Button mnemonicParsing="false" styleClass="primary-button" text="Upload Data" onAction="#handleUploadData">
+                           <padding>
+                              <Insets bottom="12.0" left="25.0" right="25.0" top="12.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+
+                  <!-- Back Button -->
+                  <Button fx:id="backButton" onAction="#handleBack" mnemonicParsing="false"
+                          styleClass="back-button" text="Back">
+                     <padding>
+                        <Insets bottom="8" left="15.0" right="15.0" top="8.0" />
+                     </padding>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="50.0" left="100.0" right="100.0" top="50.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

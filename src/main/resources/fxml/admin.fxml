@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.remote_vitals.frontend.controllers.AdminDashboardController"
+            style="-fx-background-color: #f5f6fa;">
+
+    <HBox AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+
+        <!-- Left Sidebar -->
+        <VBox style="-fx-background-color: #2c3e50;" spacing="10" prefWidth="250">
+            <padding>
+                <Insets top="20" right="15" bottom="20" left="15"/>
+            </padding>
+
+            <!-- Dashboard Title -->
+            <Label text="Admin Dashboard" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;"
+                   alignment="CENTER" maxWidth="Infinity">
+                <VBox.margin>
+                    <Insets bottom="30"/>
+                </VBox.margin>
+            </Label>
+
+            <!-- Navigation Buttons -->
+            <Button fx:id="allPatient" text="Show All Patients"
+                    onAction="#handleAllPatients"
+                    style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-size: 14px;
+                           -fx-padding: 15 20; -fx-background-radius: 5;" maxWidth="Infinity"/>
+
+            <Button fx:id="allDoctors" text="Show All Doctors"
+                    onAction="#handleAllDoctors"
+                    style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-size: 14px;
+                           -fx-padding: 15 20; -fx-background-radius: 5;" maxWidth="Infinity"/>
+
+            <Button fx:id="addDoctors" text="Add Doctors"
+                    onAction="#handleAddDoctors"
+                    style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-size: 14px;
+                           -fx-padding: 15 20; -fx-background-radius: 5;" maxWidth="Infinity"/>
+
+
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Button fx:id="logout" text="Logout"
+                    onAction="#handleLogout"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px;
+                           -fx-padding: 15 20; -fx-background-radius: 5;" maxWidth="Infinity"/>
+        </VBox>
+
+        <!-- Main Content Area -->
+        <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: white;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Content Header -->
+            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f8f9fa; -fx-padding: 10 20; -fx-background-radius: 5;">
+                <Label fx:id="contentTitle" text="Patient Profile" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <!-- Main Content -->
+            <StackPane VBox.vgrow="ALWAYS" style="-fx-padding: 20;">
+                <VBox spacing="20">
+                    <HBox spacing="50">
+                        <!-- Personal Information Section -->
+                        <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 5;">
+                            <Label text="Personal Information" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+                            <GridPane vgap="10" hgap="10">
+                                <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                <Label fx:id="firstNameLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                                <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                <Label fx:id="lastNameLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                                <Label text="Gender:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                                <Label fx:id="genderLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                            </GridPane>
+                        </VBox>
+
+                        <!-- Medical Information Section -->
+                        <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 5;">
+                            <Label text="Medical Information (Editable)" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+                            <GridPane vgap="10" hgap="10">
+                                <Label text="Phone Number:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                <TextField fx:id="phoneNumberField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                                <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                                <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                                <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                            </GridPane>
+
+                            <Button text="Update Medical Information"
+                                    onAction="#handleUpdateAdminInfo"
+                                    style="-fx-background-color: #2ecc71; -fx-text-fill: white;
+                                           -fx-padding: 10 20; -fx-background-radius: 5;"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </StackPane>
+        </VBox>
+    </HBox>
+</AnchorPane>
