@@ -10,6 +10,11 @@
 - [Prerequisites](#prerequisites)
 - [Installing and Running the Project](#installing-and-running-the-project)
 
+DEMO VIDEO:
+
+- GOOGLE DRIVE Link :https://drive.google.com/file/d/1_LwV-QvoZtN-33BFwwXDd1KQW6JqiFhM/view?usp=sharing
+  
+
 ### What is it?
 This project is a **Remote Vitals Monitoring System** designed to enable hospitals, clinics, and caregivers to monitor patients' vital signs and medical history remotely. The system consists of:
 - A **backend system** to manage users, patients, doctors, appointments, and vital data.
